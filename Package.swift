@@ -10,9 +10,8 @@ let package = Package(
         .target(
             name: "IGListKit",
             path: ".",
-            exclude: [],
             sources: ["Source"],
-            publicHeadersPath: "Source"),
+            publicHeadersPath: "Source"
         )
     ]
 )
