@@ -9,8 +9,8 @@ let package = Package(
     targets: [
         .target(
             name: "IGListKit",
-            path: ".",
-            sources: ["Source", "Source/Common", "Source/Common/Internal", "Source/Internal"],
+            path: "Source",
+            sources: ["Source/Common", "Source/Common/Internal", "Source/Internal"],
             publicHeadersPath: "Source"
         )
     ]
