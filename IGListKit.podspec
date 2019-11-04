@@ -51,6 +51,6 @@ Pod::Spec.new do |s|
        # This allows the IGListDiffKit import path to work when compiling
        # within IGListKit - header_mappings_dir above handles it for code
        # depending on this pod, but not for compiling the pod itself.
-       'HEADER_SEARCH_PATHS' => '$(PODS_TARGET_SRCROOT)/Source',
+       'HEADER_SEARCH_PATHS' => '$(PODS_TARGET_SRCROOT)/Source/**',
   }
 end
