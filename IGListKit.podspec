@@ -17,23 +17,20 @@ Pod::Spec.new do |s|
 
   s.header_mappings_dir = "Source"
 
+  [s.ios, s.tvos].each do |os|
+    os.source_files = 'Source/IGListKit/**/*.{h,m,mm}'f
+    os.public_header_files = ['Source/IGListKit/*.h']
+    os.private_header_files = ['Source/IGListKit/Internal/*.h']
+  end
+
+  cs.osx.source_files = 'Source/IGListKit/IGListKit.h'
+
   s.subspec 'Diffing' do |ds|
     ds.source_files = 'Source/IGListDiffKit/**/*.{h,m,mm}'
+    ds.public_header_files = 'Source/IGListDiffKit/*.h'
     ds.private_header_files = 'Source/IGListDiffKit/Internal/*.h'
   end
 
-  s.subspec 'Default' do |cs|
-    cs.dependency 'IGListKit/Diffing'
-
-    [cs.ios, cs.tvos].each do |os|
-      os.source_files = 'Source/IGListKit/**/*.{h,m,mm}'
-      os.private_header_files = ['Source/IGListKit/Internal/*.h']
-    end
-
-    cs.osx.source_files = 'Source/IGListKit/IGListKit.h'
-  end
-
-  s.default_subspec = 'Default'
   s.requires_arc = true
 
   s.ios.deployment_target = '9.0'
@@ -47,10 +44,6 @@ Pod::Spec.new do |s|
   s.library = 'c++'
   s.pod_target_xcconfig = {
        'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
-       'CLANG_CXX_LIBRARY' => 'libc++',
-       # This allows the IGListDiffKit import path to work when compiling
-       # within IGListKit - header_mappings_dir above handles it for code
-       # depending on this pod, but not for compiling the pod itself.
-       'HEADER_SEARCH_PATHS' => '$(PODS_TARGET_SRCROOT)/Source/**',
+       'CLANG_CXX_LIBRARY' => 'libc++'
   }
 end
