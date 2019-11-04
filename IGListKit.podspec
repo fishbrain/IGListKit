@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.header_mappings_dir = "Source"
 
   [s.ios, s.tvos].each do |os|
-    os.source_files = 'Source/IGListKit/**/*.{h,m,mm}'f
+    os.source_files = 'Source/IGListKit/**/*.{h,m,mm}'
     os.public_header_files = ['Source/IGListKit/*.h']
     os.private_header_files = ['Source/IGListKit/Internal/*.h']
   end
