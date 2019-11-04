@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
     os.private_header_files = ['Source/IGListKit/Internal/*.h']
   end
 
-  cs.osx.source_files = 'Source/IGListKit/IGListKit.h'
+  s.osx.source_files = 'Source/IGListKit/IGListKit.h'
 
   s.subspec 'Diffing' do |ds|
     ds.source_files = 'Source/IGListDiffKit/**/*.{h,m,mm}'
