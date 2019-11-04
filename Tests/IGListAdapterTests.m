@@ -8,22 +8,22 @@
 #import <objc/runtime.h>
 
 #import <XCTest/XCTest.h>
+
 #import <OCMock/OCMock.h>
 
-#import <IGListKit/IGListExperiments.h>
+#import <IGListDiffKit/IGListExperiments.h>
 #import <IGListKit/IGListKit.h>
 
 #import "IGListAdapterInternal.h"
 #import "IGListTestAdapterDataSource.h"
-#import "IGListTestAdapterReorderingDataSource.h"
 #import "IGListTestAdapterHorizontalDataSource.h"
+#import "IGListTestAdapterReorderingDataSource.h"
+#import "IGListTestCase.h"
 #import "IGListTestOffsettingLayout.h"
 #import "IGListTestSection.h"
+#import "IGTestNibSupplementaryView.h"
 #import "IGTestReorderableSection.h"
 #import "IGTestSupplementarySource.h"
-#import "IGTestNibSupplementaryView.h"
-#import "IGListTestCase.h"
-
 #import "UICollectionViewLayout+InteractiveReordering.h"
 
 @interface IGListAdapterTests : IGListTestCase
@@ -1669,14 +1669,14 @@
 }
 
 - (void)test_whenPrefetchingEnabled_thatSetterDisables {
-  if (@available(iOS 10.0, *)) {
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:[UICollectionViewFlowLayout new]];
-
-    IGListAdapter *adapter = [[IGListAdapter alloc] initWithUpdater:[IGListAdapterUpdater new] viewController:nil];
-    adapter.collectionView = collectionView;
-
-    XCTAssertFalse(collectionView.prefetchingEnabled);
-  }
+    if (@available(iOS 10.0, *)) {
+        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:[UICollectionViewFlowLayout new]];
+        
+        IGListAdapter *adapter = [[IGListAdapter alloc] initWithUpdater:[IGListAdapterUpdater new] viewController:nil];
+        adapter.collectionView = collectionView;
+        
+        XCTAssertFalse(collectionView.prefetchingEnabled);        
+    }
 }
 
 - (void)test_whenSectionControllerReorderDisabled_thatAdapterReorderDisabled {
